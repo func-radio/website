@@ -11,16 +11,11 @@ import "../styles/global.css";
 		<meta name="generator" content={Astro.generator} />
 		<title>FUNC Radio</title>
 	</head>
-	<body>
-		<slot />
+	<body class="bg-background text-foreground">
+		<div
+			class="mx-auto flex w-[80ch] max-w-full flex-col items-center gap-8 px-10"
+		>
+			<slot />
+		</div>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
