@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Caprasimo&display=swap");
 
 @import "tailwindcss";
 
 @theme inline {
-	--font-sans: var(--font-geist-sans);
+	--font-sans: "Bricolage Grotesque", sans-serif;
 	--font-serif: "Caprasimo", serif;
 	--font-mono: var(--font-geist-mono);
 	--color-background: var(--color-purple-100);
