@@ -1,93 +1,11 @@
 ---
-const schedule = [
-	{
-		time: "6:00 AM - 9:00 AM",
-		title: "Morning Funk Revival",
-		description:
-			"Start your day with the smoothest funk classics and deep cuts to get you moving.",
-		isActive: true,
-	},
-	{
-		time: "9:00 AM - 12:00 PM",
-		title: "Midday Groove",
-		description:
-			"A blend of contemporary funk and soul to keep the energy flowing through your morning.",
-		isActive: false,
-	},
-	{
-		time: "12:00 PM - 3:00 PM",
-		title: "Lunch Break Beats",
-		description:
-			"Funky rhythms and soulful melodies perfect for your midday break.",
-		isActive: false,
-	},
-	{
-		time: "3:00 PM - 6:00 PM",
-		title: "Afternoon Jam Session",
-		description:
-			"Live performances, rare tracks, and funk fusion to power through your afternoon.",
-		isActive: false,
-	},
-	{
-		time: "6:00 PM - 9:00 PM",
-		title: "Prime Time Funk",
-		description:
-			"The best of funk, disco, and boogie for your evening commute and beyond.",
-		isActive: false,
-	},
-	{
-		time: "9:00 PM - 12:00 AM",
-		title: "Late Night Vibes",
-		description: "Smooth and mellow funk selections to wind down your evening.",
-		isActive: false,
-	},
-	{
-		time: "12:00 AM - 6:00 AM",
-		title: "After Hours Deep Cuts",
-		description:
-			"Rare gems and underground funk for the night owls and insomniacs.",
-		isActive: false,
-	},
-];
+import { ScheduleList } from "./ScheduleList";
 ---
 
 <section class="flex w-full flex-col gap-8">
-	<h1 class="font-serif text-4xl text-[#db5439]">Schedule</h1>
+	<h1 class="font-serif text-4xl text-[#db5439]">Upcoming Shows</h1>
 
 	<div class="flex flex-col gap-3">
-		{
-			schedule.map((show) => (
-				<div
-					class={`rounded-lg border-2 p-4 transition-all ${
-						show.isActive
-							? "border-[#db5439] bg-[#db5439] text-white shadow-lg"
-							: "border-gray-200 bg-white hover:border-[#db5439]"
-					}`}
-				>
-					<div class="mb-2 flex items-center gap-3">
-						<span
-							class={`text-sm font-semibold ${show.isActive ? "text-white" : "text-[#db5439]"}`}
-						>
-							{show.time}
-						</span>
-						{show.isActive && (
-							<span class="rounded-full bg-white px-2 py-1 text-xs font-bold text-[#db5439] uppercase">
-								On Air
-							</span>
-						)}
-					</div>
-					<h3
-						class={`mb-1 text-xl font-bold ${show.isActive ? "text-white" : "text-gray-900"}`}
-					>
-						{show.title}
-					</h3>
-					<p
-						class={`text-sm ${show.isActive ? "text-white/90" : "text-gray-600"}`}
-					>
-						{show.description}
-					</p>
-				</div>
-			))
-		}
+		<ScheduleList client:load />
 	</div>
 </section>
