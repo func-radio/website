@@ -39,7 +39,7 @@ function ShowCard({ show }: ShowCardProps) {
 					{show.startTime.getDay() != new Date().getDay() && (
 						<>
 							{show.startTime.toLocaleString("en", { weekday: "long" })}
-							{", "}
+							{" @ "}
 						</>
 					)}
 					{show.startTime.toLocaleTimeString("en-US", {
