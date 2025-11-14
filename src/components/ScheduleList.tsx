@@ -29,7 +29,7 @@ function ShowCard({ show }: ShowCardProps) {
 			class={`rounded-lg border-2 p-4 transition-all ${
 				isActive
 					? "border-[#db5439] bg-[#db5439] text-white shadow-lg"
-					: "border-neutral-200 bg-white hover:border-[#db5439]"
+					: "border-neutral-200 bg-white"
 			}`}
 		>
 			<div class="mb-2 flex items-center gap-3">
@@ -75,13 +75,11 @@ function ShowCard({ show }: ShowCardProps) {
 const googleCalendarClient = new GoogleCalendarClient(GOOGLE_CALENDAR_API_KEY);
 
 export function ScheduleList() {
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
 	const [data, setData] = useState<CalendarEvent[] | null>();
 
 	useEffect(() => {
-		setIsLoading(true);
-
 		googleCalendarClient
 			.listAllEvents(GOOGLE_CALENDAR_ID, {
 				timeMin: new Date().toISOString(),
@@ -101,8 +99,25 @@ export function ScheduleList() {
 
 	return (
 		<div class="flex flex-col gap-3">
-			{isLoading && <div>Loading...</div>}
-			{error && <div>Failed to load schedule</div>}
+			{isLoading && (
+				<>
+					{[...Array(5)].map((_, i) => (
+						<div
+							key={i}
+							class="animate-pulse rounded-lg border-2 border-neutral-200 bg-white p-4"
+						>
+							<div class="mb-2 h-5 w-48 rounded bg-neutral-200" />
+							<div class="mb-1 h-6 w-64 rounded bg-neutral-200" />
+							<div class="h-4 w-full rounded bg-neutral-200" />
+							<div class="mt-1 h-4 w-3/4 rounded bg-neutral-200" />
+						</div>
+					))}
+				</>
+			)}
+
+			{error && (
+				<div class="font-bold text-red-800">Failed to load schedule</div>
+			)}
 
 			{data?.slice(0, 5).map((event) => {
 				const show: Show = {
