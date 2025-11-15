@@ -3,19 +3,28 @@ import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-background text-foreground">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>FUNC Radio</title>
+		<meta
+			name="description"
+			content="FUNC Radio, a college station based out of Furman University in Greenville, South Carolina. Built by students, for students, we have all sorts of shows for all sorts of people, and definitely something you'll enjoy."
+		/>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Caprasimo&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
-	<body class="bg-background text-foreground">
-		<div
-			class="mx-auto my-24 flex w-[80ch] max-w-full flex-col items-center gap-8 px-4 sm:px-8"
-		>
-			<slot />
-		</div>
+	<body
+		class="mx-auto my-24 flex w-[80ch] max-w-full flex-col items-center gap-8 px-4 sm:px-8"
+	>
+		<slot />
 	</body>
 </html>
