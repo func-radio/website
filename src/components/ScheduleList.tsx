@@ -28,13 +28,13 @@ function ShowCard({ show }: ShowCardProps) {
 		<div
 			class={`rounded-lg border-2 p-4 transition-all ${
 				isActive
-					? "border-[#db5439] bg-[#db5439] text-white shadow-lg"
+					? "border-secondary bg-secondary text-white shadow-lg"
 					: "border-neutral-200 bg-white"
 			}`}
 		>
 			<div class="mb-2 flex items-center gap-3">
 				<span
-					class={`text-sm font-semibold ${isActive ? "text-white" : "text-[#db5439]"}`}
+					class={`text-sm font-semibold ${isActive ? "text-white" : "text-secondary"}`}
 				>
 					{show.startTime.getDay() != new Date().getDay() && (
 						<>
@@ -55,7 +55,7 @@ function ShowCard({ show }: ShowCardProps) {
 					})}
 				</span>
 				{isActive && (
-					<span class="rounded-full bg-white px-2 py-1 text-xs font-bold text-[#db5439] uppercase">
+					<span class="text-secondary rounded-full bg-white px-2 py-1 text-xs font-bold uppercase">
 						On Air
 					</span>
 				)}
